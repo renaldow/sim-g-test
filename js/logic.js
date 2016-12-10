@@ -11,18 +11,40 @@ var readingCompQuestion = false;
 var rc_index = 0;
 var speedSimStarted = false;
 
-window.setInterval(function(){
+window.onload=function(){
+
+	document.getElementById("interval").value = 5;
+
+
+
+};
+
+
+$('#divNewNotifications li').on('click', function() {
+    $('#dropdown_title').html($(this).find('a').html());
+
+     directoryValue = $(this).text();
+    
+
+    });
+
+
+function setMyInterval() {
+
+	var interval = document.getElementById("interval").value;
+
+    myVar = setInterval(intervalNextQuestion, interval * 1000);
+}
+
+function intervalNextQuestion(){
 	  	
-	  	if(speedSimStarted)	{ 
+  	if(speedSimStarted)	{ 
 
-	  		nextQuestion();
+  		nextQuestion();
 
-	  	}
-	  	else {
-	  		//Do Nothing
-	  	}
-	  		
-	}, 10000);
+  	}
+	  	
+}
 
 
 function nextQuestion() {
@@ -63,7 +85,9 @@ function previousQuestion() {
 
 function changeQuestion(questionNum) {
 
-	var question = baseUrl + "/images/exams/exam1_verbal1/" + questionNum + ".png";
+	
+
+	var question = baseUrl + "/images/exams/" + directoryValue + "/" + questionNum + ".png";
 
 	var exist = UrlExists(question)
 
@@ -113,7 +137,7 @@ function cycleReadingComp() {
 
 function readingCompLayout(original, index) {
 
-	var rc_passage = baseUrl + "/images/exams/exam1_verbal1/" + original + "_passage" + ".png";
+	var rc_passage = baseUrl + "/images/exams/" + directoryValue + "/" + original + "_passage" + ".png";
 
 	document.getElementById("rc_column1").style.display = "block";
 	document.getElementById("rc_column1").style.width = "100%";
@@ -121,7 +145,7 @@ function readingCompLayout(original, index) {
 	document.getElementById("myRCImg").src = rc_passage;
 
 	
-	var question = baseUrl + "/images/exams/exam1_verbal1/" + original + "_" + index + ".png";
+	var question = baseUrl + "/images/exams/" + directoryValue + "/" + original + "_" + index + ".png";
 
 	var exist = UrlExists(question)
 
@@ -142,6 +166,7 @@ function readingCompLayout(original, index) {
 function startSpeedSimulation() {
 
 	speedSimStarted = true;
+	setMyInterval();
 
 }
 
@@ -153,7 +178,11 @@ function restartSpeedSimulation() {
 	currentQuestion = 0;
 	readingCompQuestion = false;
     rc_index = 0;
+
+    setMyInterval();
+
     speedSimStarted = true;
+
 	
 }
 

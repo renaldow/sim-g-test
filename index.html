@@ -14,9 +14,32 @@
 
 <nav class="navbar navbar-inverse">
   <p class="navbar-text">GRE SPEED SIMULATION</p>
-  <ul class="nav nav-pills" role="tablist" style="text-align: right;margin-right: 40px;">
+
+              
+            <input class="form-control" id="interval" type="text" placeholder="interval(sec)" style="float: right;margin-left: 30px;width: 200px;">
+
+            <div class="dropdown" style="float: right;margin-left: 30px;width: 200px;">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="dropdown_title">Directory
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="divNewNotifications">
+                  <li><a href="#">exam1_verbal1</a></li>
+                  <li><a href="#">exam1_quant1</a></li>
+                  <li><a href="#">exam1_verbal2</a></li>
+                  <li><a href="#">exam1_quant2</a></li>
+
+                  <li><a href="#">exam2_verbal1</a></li>
+                  <li><a href="#">exam2_quant1</a></li>
+                  <li><a href="#">exam2_verbal2</a></li>
+                  <li><a href="#">exam2_quant2</a></li>
+              </ul>
+            </div>
+
+
+            <ul class="nav nav-pills" role="tablist" style="text-align: right;margin-right: 40px;">
               <!-- <li><a href="#" onClick="previousQuestion()">Previous</a></li> -->
               <!-- <li><a href="#" onClick="nextQuestion()">Next</a></li>     --> 
+
+              
 
               <button type="button" onClick="startSpeedSimulation()" class="btn btn-success">Start</button>
               <button type="button" onClick="stopSpeedSimulation()" class="btn btn-default">Stop</button>

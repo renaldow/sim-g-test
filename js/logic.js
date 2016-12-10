@@ -31,9 +31,9 @@ function nextQuestion() {
 	if(!readingCompQuestion) {
 		currentQuestion = currentQuestion + 1;
 
-		if(currentQuestion == 14 ) {
+		if(currentQuestion == 21 ) {
 
-			currentQuestion = 13;
+			currentQuestion = 20;
 		}
 
 		changeQuestion(currentQuestion);

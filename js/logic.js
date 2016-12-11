@@ -20,7 +20,7 @@ window.onload=function(){
 };
 
 
-$('#divNewNotifications li').on('click', function() {
+$('#divNewNotifications	 li').on('click', function() {
     $('#dropdown_title').html($(this).find('a').html());
 
      directoryValue = $(this).text();
@@ -92,6 +92,8 @@ function previousQuestion(amount) {
 
 		currentQuestion = 1;
 	}
+
+	readingCompQuestion = false;
 
 	changeQuestion(currentQuestion);
 

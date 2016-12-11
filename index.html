@@ -43,8 +43,18 @@
 
               <button type="button" onClick="startSpeedSimulation()" class="btn btn-success">Start</button>
               <button type="button" onClick="stopSpeedSimulation()" class="btn btn-default">Stop</button>
-              <button type="button" onClick="restartSpeedSimulation()" class="btn btn-warning">Restart</button>
-              <button type="button" onClick="nextQuestion()" class="btn btn-primary">Next</button>
+              <button type="button" onClick="restartSpeedSimulation()" class="btn btn-default">Restart</button>
+
+              <div class="dropdown" style="float: right;margin-left: 30px; width: 90px;">
+              <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="previous">Previous
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="backList">
+                  <li><a href="#">Back 1</a></li>
+                  <li><a href="#">Back 5</a></li>
+              </ul>
+            </div>
+
+              <button type="button" onClick="nextQuestion()" class="btn btn-warning">Next</button>
 
              <!--  <li><a href="#" onClick="readingCompLayout()">RC Layout</a></li>  -->
             </ul>

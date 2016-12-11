@@ -28,6 +28,22 @@ $('#divNewNotifications li').on('click', function() {
 
     });
 
+$('#backList li').on('click', function() {
+    $('#previous').html($(this).find('a').html());
+
+    var backValue = $(this).text();
+
+    if(backValue == "Back 1") {
+    	previousQuestion(1);
+
+
+    } else if (backValue == "Back 5"){
+    	previousQuestion(5);
+
+    }
+
+    });
+
 
 function setMyInterval() {
 
@@ -68,11 +84,11 @@ function nextQuestion() {
 
 
 
-function previousQuestion() {
+function previousQuestion(amount) {
 
-	currentQuestion = currentQuestion - 1;
+	currentQuestion = currentQuestion - amount;
 
-	if(currentQuestion == 0 || currentQuestion == -1) {
+	if(currentQuestion == 0 || currentQuestion < 0) {
 
 		currentQuestion = 1;
 	}

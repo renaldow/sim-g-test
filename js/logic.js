@@ -10,6 +10,7 @@ var currentQuestion = 0;
 var readingCompQuestion = false;
 var rc_index = 0;
 var speedSimStarted = false;
+var myVar;
 
 window.onload=function(){
 
@@ -40,7 +41,11 @@ $('#backList li').on('click', function() {
     } else if (backValue == "Back 5"){
     	previousQuestion(5);
 
+    } else if (backValue == "Back 10"){
+    	previousQuestion(10);
+
     }
+
 
     });
 
@@ -48,6 +53,8 @@ $('#backList li').on('click', function() {
 function setMyInterval() {
 
 	var interval = document.getElementById("interval").value;
+
+	clearTimeout(myVar)
 
     myVar = setInterval(intervalNextQuestion, interval * 1000);
 }
@@ -69,9 +76,9 @@ function nextQuestion() {
 	if(!readingCompQuestion) {
 		currentQuestion = currentQuestion + 1;
 
-		if(currentQuestion == 21 ) {
+		if(currentQuestion == 22 ) {
 
-			currentQuestion = 20;
+			currentQuestion = 21;
 		}
 
 		changeQuestion(currentQuestion);
@@ -189,6 +196,7 @@ function startSpeedSimulation() {
 }
 
 function stopSpeedSimulation() {
+	clearTimeout(myVar);
 	speedSimStarted = false;
 }
 
@@ -203,8 +211,6 @@ function restartSpeedSimulation() {
 
 	
 }
-
-
 
 
 function UrlExists(url)
